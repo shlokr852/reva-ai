@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>REVA — AI Search</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand"><span class="brand-mark">✦</span> REVA</div>
+    <button id="newChat" class="new-chat">＋ New chat</button>
+    <div class="side-label">YOUR CHATS</div>
+    <div id="historyList" class="history-list"></div>
+    <div class="sidebar-bottom">
+      <div class="status-line"><span class="dot"></span> Local app</div>
+      <div class="small-note">Your chats stay in this browser.</div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <button id="menuBtn" class="menu-btn" aria-label="Open menu">☰</button>
+      <div class="top-brand">✦ REVA</div>
+      <div class="top-caption">AI SEARCH ASSISTANT</div>
+    </header>
+
+    <section id="welcome" class="welcome">
+      <div class="hero-symbol">✦</div>
+      <h1>What can I help you discover?</h1>
+      <p>Ask a question. Explore the web. Learn something new.</p>
+      <div class="suggestions">
+        <button class="suggestion" data-q="Explain how black holes work">🌌 Explain black holes</button>
+        <button class="suggestion" data-q="What are the latest advances in renewable energy?">⚡ Renewable energy</button>
+        <button class="suggestion" data-q="Teach me Python programming from the beginning">💻 Learn Python</button>
+        <button class="suggestion" data-q="What caused the French Revolution?">📚 History question</button>
+      </div>
+    </section>
+
+    <section id="conversation" class="conversation hidden"></section>
+
+    <section class="composer-wrap">
+      <form id="askForm" class="composer">
+        <textarea id="question" rows="1" maxlength="2000" placeholder="Ask REVA anything..." aria-label="Your question"></textarea>
+        <div class="composer-bottom">
+          <label class="web-toggle"><input id="webToggle" type="checkbox" checked> <span>⌕ Web search</span></label>
+          <span class="hint">Enter to send · Shift + Enter for new line</span>
+          <button id="sendBtn" class="send-btn" type="submit" aria-label="Send">↑</button>
+        </div>
+      </form>
+      <p class="disclaimer">REVA can make mistakes. Check important information using the sources.</p>
+    </section>
+  </main>
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
